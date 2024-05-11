@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 class DatabaseHelper extends SQLiteOpenHelper implements BaseColumns {
     public static final String DB_NOTES = "diary.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
     public DatabaseHelper(Context context) {
         super(context, DB_NOTES, null, DATABASE_VERSION);
     }

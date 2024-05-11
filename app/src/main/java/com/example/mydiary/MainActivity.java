@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements
         ContentValues values = new ContentValues();
 
         String[] projection = {
-                //DBContract.DBEntry._ID,
+                DBContract.DBEntry._ID,
                 DBContract.DBEntry.COLUMN_NAME_DATE,
                 DBContract.DBEntry.COLUMN_NAME_EMO,
                 DBContract.DBEntry.COLUMN_NAME_DESCR,

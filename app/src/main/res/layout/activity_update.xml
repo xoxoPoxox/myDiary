@@ -72,9 +72,10 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine" />
+
             <ImageView
                 android:id="@+id/ET_icon"
-                android:layout_width="203dp"
+                android:layout_width="match_parent"
                 android:layout_height="205dp"
                 android:background="@null"
                 android:src="@null" />

@@ -1,5 +1,7 @@
 package com.example.mydiary;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,7 +33,7 @@ import java.util.Locale;
 
 
 public class AddActivity extends AppCompatActivity {
-    String[] emotions = { "Отлично", "Хорошо", "Нормально", "Плохо", "Ужасно"};
+    String[] emotions = { "Не выбрано", "Отлично", "Хорошо", "Нормально", "Плохо", "Ужасно"};
     ImageButton buttonOK, buttonNO, buttonPic;
     EditText ET_desc;
     ImageView ET_icon;
@@ -116,7 +118,7 @@ public class AddActivity extends AppCompatActivity {
                 // Запуск галереи для выбора изображения
                 Intent intent = new Intent();
                 intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
                 startActivityForResult(Intent.createChooser(intent, "Выберите изображение"), PICK_IMAGE_REQUEST);
             }
         });
@@ -133,6 +135,7 @@ public class AddActivity extends AppCompatActivity {
             try {
                 // Преобразование URI в Bitmap
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+
 
                 // Установка изображения в ImageView
                 ET_icon.setImageBitmap(bitmap);

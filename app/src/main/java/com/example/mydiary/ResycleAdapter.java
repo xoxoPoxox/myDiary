@@ -46,7 +46,7 @@ public class ResycleAdapter extends RecyclerView.Adapter<ResycleAdapter.ViewHold
 
         // Получаем данные из курсора
 
-        //@SuppressLint("Range") Long value_id = cursor.getLong(cursor.getColumnIndex(DBContract.DBEntry._ID));
+        @SuppressLint("Range") Integer value_id = cursor.getInt(cursor.getColumnIndex(DBContract.DBEntry._ID));
         @SuppressLint("Range") String value_date = cursor.getString(cursor.getColumnIndex(DBContract.DBEntry.COLUMN_NAME_DATE));
         @SuppressLint("Range") String value_emotion = cursor.getString(cursor.getColumnIndex(DBContract.DBEntry.COLUMN_NAME_EMO));
         @SuppressLint("Range") String value_descr = cursor.getString(cursor.getColumnIndex(DBContract.DBEntry.COLUMN_NAME_DESCR));
@@ -62,10 +62,12 @@ public class ResycleAdapter extends RecyclerView.Adapter<ResycleAdapter.ViewHold
             public void onClick(View v) {
                 // Переходим на новое активити и передаем данные
                 Intent intent = new Intent(mContext, UpdateActivity.class);
-                intent.putExtra("date", value_date);
-                intent.putExtra("descr", value_descr);
+                intent.putExtra("id", value_id);
+
+                //cursor.close();
 
                 mContext.startActivity(intent);
+
             }
         });
     }
